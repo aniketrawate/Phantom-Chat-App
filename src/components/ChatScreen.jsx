@@ -50,10 +50,10 @@ export default function ChatScreen({ messages, status, onSend, onDisconnect, onR
   }
 
   return (
-    <div className="h-screen bg-black flex flex-col max-w-lg mx-auto">
+    <div className="min-h-dvh w-full bg-black flex flex-col">
 
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-zinc-900 border-b border-zinc-800 shrink-0">
+      <div className="flex items-center justify-between px-4 py-3 bg-zinc-900 border-b border-zinc-800 flex-shrink-0">
 
         <h1 className="text-lg font-black tracking-tighter text-lime-400">
           PHANTOM
@@ -138,7 +138,7 @@ export default function ChatScreen({ messages, status, onSend, onDisconnect, onR
       </div>
 
       {/* Input area */}
-      <div className="flex items-end gap-3 px-4 py-3 bg-zinc-900 border-t border-zinc-800 shrink-0">
+      <div className="flex items-end gap-3 px-4 py-3 bg-zinc-900 border-t border-zinc-800 flex-shrink-0">
         <textarea
           ref={textareaRef}
           value={input}
@@ -152,7 +152,7 @@ export default function ChatScreen({ messages, status, onSend, onDisconnect, onR
         <button
           onClick={handleSend}
           disabled={!input.trim() || status === 'disconnected'}
-          className="w-10 h-10 bg-lime-400 rounded flex items-center justify-center shrink-0 hover:bg-lime-300 transition-colors disabled:bg-zinc-800 disabled:cursor-not-allowed"
+          className="w-10 h-10 bg-lime-400 rounded flex items-center justify-center flex-shrink-0 hover:bg-lime-300 transition-colors disabled:bg-zinc-800 disabled:cursor-not-allowed"
         >
           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
             <path d="M22 2L11 13" stroke="#000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>

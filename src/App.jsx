@@ -13,7 +13,7 @@ export default function App() {
   const isInChat = status === 'connected' || status === 'disconnected'
 
   return (
-    <div className="h-full w-full">
+    <div className="min-h-dvh w-full">
       {!isInChat && (
         <JoinScreen
           onConnect={connect}
