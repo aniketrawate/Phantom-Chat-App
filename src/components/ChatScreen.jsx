@@ -8,18 +8,16 @@ export default function ChatScreen({ messages, status, onSend, onDisconnect, onR
   const messagesEndRef = useRef(null)
   const textareaRef = useRef(null)
 
-  // Auto scroll to bottom when new message arrives
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
   useEffect(() => {
-  if (!vanishSync) return
-  setVanishMode(vanishSync.vanishMode)
-  setVanishSeconds(vanishSync.vanishSeconds)
-}, [vanishSync])
+    if (!vanishSync) return
+    setVanishMode(vanishSync.vanishMode)
+    setVanishSeconds(vanishSync.vanishSeconds)
+  }, [vanishSync])
 
-  // Auto resize textarea as user types
   const handleInput = (e) => {
     setInput(e.target.value)
     const ta = textareaRef.current
@@ -54,20 +52,12 @@ export default function ChatScreen({ messages, status, onSend, onDisconnect, onR
 
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 bg-zinc-900 border-b border-zinc-800 flex-shrink-0">
-
-        <h1 className="text-lg font-black tracking-tighter text-lime-400">
-          PHANTOM
-        </h1>
+        <h1 className="text-lg font-black tracking-tighter text-lime-400">PHANTOM</h1>
 
         <div className="flex items-center gap-3">
-
-          {/* Vanish controls */}
           <div className="flex items-center gap-2 bg-black border border-zinc-800 rounded px-3 py-1.5">
-            <span className="text-[9px] text-zinc-600 tracking-widest uppercase">
-              Vanish
-            </span>
+            <span className="text-[9px] text-zinc-600 tracking-widest uppercase">Vanish</span>
 
-            {/* Toggle */}
             <button
               onClick={() => {
                 const newMode = !vanishMode
@@ -83,7 +73,6 @@ export default function ChatScreen({ messages, status, onSend, onDisconnect, onR
               }`} />
             </button>
 
-            {/* Timer input */}
             {vanishMode && (
               <>
                 <input
@@ -99,21 +88,17 @@ export default function ChatScreen({ messages, status, onSend, onDisconnect, onR
             )}
           </div>
 
-          {/* Leave button */}
           <button
             onClick={onDisconnect}
             className="text-[9px] text-zinc-700 border border-zinc-800 rounded px-2 py-1.5 tracking-widest uppercase hover:border-red-900 hover:text-red-600 transition-colors"
           >
             LEAVE
           </button>
-
         </div>
       </div>
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3">
-
-        {/* Connected system message */}
         <p className="text-center text-[10px] text-lime-400/60 tracking-widest uppercase">
           — connected · zero trace —
         </p>
@@ -130,7 +115,7 @@ export default function ChatScreen({ messages, status, onSend, onDisconnect, onR
             message={msg}
             vanishMode={vanishMode}
             vanishSeconds={vanishSeconds}
-            onVanish={() => onRemoveMessage(msg.id)}
+            onVanish={onRemoveMessage} 
           />
         ))}
 
