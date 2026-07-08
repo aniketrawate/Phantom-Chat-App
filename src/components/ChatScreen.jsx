@@ -81,7 +81,7 @@ export default function ChatScreen({ messages, status, onSend, onDisconnect, onR
                   onChange={handleTimerChange}
                   min={1}
                   max={900}
-                  className="w-10 bg-transparent text-lime-400 font-mono text-xs text-center outline-none border border-zinc-800 rounded px-1 py-0.5"
+                  className="w-15 bg-transparent text-lime-400 font-mono text-xs text-center outline-none border border-zinc-800 rounded px-1 py-0.5"
                 />
                 <span className="text-[9px] text-zinc-600">s</span>
               </>
@@ -90,7 +90,7 @@ export default function ChatScreen({ messages, status, onSend, onDisconnect, onR
 
           <button
             onClick={onDisconnect}
-            className="text-[9px] text-zinc-700 border border-zinc-800 rounded px-2 py-1.5 tracking-widest uppercase hover:border-red-900 hover:text-red-600 transition-colors"
+            className="text-[9px] text-red-700 border border-red-800 rounded px-2 py-1.5 tracking-widest uppercase hover:border-red-900 hover:text-red-600 transition-colors"
           >
             LEAVE
           </button>
